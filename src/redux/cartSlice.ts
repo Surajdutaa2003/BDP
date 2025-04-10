@@ -3,6 +3,7 @@ import { getCartItems, removeCartItems } from "../utils/API";
 import { toast } from "react-toastify";
 
 interface Product {
+    [x: string]: string;
     quantityToBuy: number;
     description: string;
     discountPrice: number;

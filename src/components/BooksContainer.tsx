@@ -101,7 +101,7 @@ function BooksContainer() {
 
     return (
         <div className='w-[100%] flex flex-col justify-center items-center !mt-[60px] z-100 !mb-[25px]'>
-            <div className="w-[76%] h-[100px] flex items-center max-sm:w-[92%]">
+            <div className="w-[66%] h-[100px] flex items-center max-sm:w-[92%]">
                 <div className='w-[100%] h-[60%] py-10 flex justify-between items-center'>
                     <div className="text-[30px] flex items-center gap-[10px] max-sm:gap-[2px] max-md:gap-[5px]">
                         <p className="text-[35px] max-md:text-[25px] max-sm:text-[20px]">Books</p>

@@ -2,12 +2,14 @@ import { configureStore } from "@reduxjs/toolkit";
 import bookReducer from "./bookSlice";
 import searchReducer from "./searchSlice";
 import cartReducer from "./cartSlice";
+import orderReducer from "./orderSlice";
 
 export const store = configureStore({
     reducer: {
         books: bookReducer,
         search: searchReducer,
-        cart: cartReducer
+        cart: cartReducer,
+        orders: orderReducer,
     },
 });
 

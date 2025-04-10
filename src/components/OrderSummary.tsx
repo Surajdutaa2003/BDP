@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { RootState, AppDispatch } from '../redux/store'; // ✅ Import AppDispatch
+import { RootState, AppDispatch } from '../redux/store';
 import { useSelector, useDispatch } from 'react-redux';
 import BookCover1 from '../assets/BookCover1.png';
 import BookCover2 from '../assets/BookCover2.png';
@@ -13,7 +13,8 @@ import BookCover9 from '../assets/BookCover9.png';
 import { addOrder } from '../utils/API';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
-import { deleteCartItem } from '../redux/cartSlice'; // Import deleteCartItem
+import { deleteCartItem } from '../redux/cartSlice';
+import { addOrders } from '../redux/orderSlice'; // ✅ Imported for saving orders
 
 type OrderSummaryProps = {
   isContinueControlled: boolean;
@@ -33,9 +34,8 @@ type CartItem = {
 function OrderSummary(props: OrderSummaryProps) {
   const { isContinueControlled } = props;
   const navigate = useNavigate();
-  const dispatch = useDispatch<AppDispatch>(); // ✅ Typed dispatch
+  const dispatch = useDispatch<AppDispatch>();
   const { items } = useSelector((state: RootState) => state.cart);
-  console.log('Items in Order: ', items);
 
   const orderItems = items.map((book: CartItem) => ({
     product_id: book.product_id._id,
@@ -50,6 +50,10 @@ function OrderSummary(props: OrderSummaryProps) {
       if (status === 200 || status === 201) {
         toast.success('Order placed successfully!');
 
+        // ✅ Save to orders in Redux
+        dispatch(addOrders(items));
+
+        // ✅ Remove items from cart
         const deletePromises = items.map((item: CartItem) =>
           dispatch(deleteCartItem(item._id))
         );
