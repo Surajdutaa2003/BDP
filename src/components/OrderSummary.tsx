@@ -14,7 +14,7 @@ import { addOrder } from '../utils/API';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import { deleteCartItem } from '../redux/cartSlice';
-import { addOrders } from '../redux/orderSlice'; // ✅ Imported for saving orders
+import { addOrders } from '../redux/OrderSlice'; // ✅ Corrected casing for Linux/Netlify
 
 type OrderSummaryProps = {
   isContinueControlled: boolean;
