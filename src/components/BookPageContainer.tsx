@@ -159,7 +159,11 @@ function BookPageContainer() {
                 <div className='w-[35%] h-[500px] flex max-md:w-[45%] max-sm:w-[90%]'>
                     <div className='w-[15%] h-[200px]'>
                         <div className='h-[65px] w-[100%] border border-black flex justify-center items-center hover:cursor-pointer'>
-                            <img src={data.cover} className='h-[62px] !p-[2px]' onClick={() => setShowImage1(true)} />
+                        <img
+  src={data?.cover || bookImage2}
+  className='h-[62px] !p-[2px]'
+  onClick={() => setShowImage1(true)}
+/>
                         </div>
                         <div className='h-[65px] w-[100%] border border-black flex justify-center items-center hover:cursor-pointer'>
                             <img src={bookImage2} className='h-[62px] !p-[2px]' onClick={() => setShowImage1(false)} />
@@ -167,7 +171,10 @@ function BookPageContainer() {
                     </div>
                     <div className='w-[85%] flex flex-col gap-2.5'>
                         <div className='w-[100%] h-[375px] border border-[grey] flex justify-center items-center max-[1050px]:h-[250px]'>
-                            <img src={showImage1 ? data.cover : bookImage2} className='h-[100%] max-[1050px]:h-[70%]' />
+                        <img
+  src={showImage1 ? (data?.cover || bookImage2) : bookImage2}
+  className='h-[90%] max-[1050px]:h-[70%]'
+/>
                         </div>
                         <div className="w-[100%] flex flex-col lg:flex-row justify-between gap-4 lg:gap-6 lg:w-full">
                             {showCounter ? (
