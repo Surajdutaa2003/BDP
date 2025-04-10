@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "lib": ["DOM", "ESNext"],
+    "jsx": "react-jsx",
+    "strict": true,
+    "esModuleInterop": true,
+    "moduleResolution": "bundler",
+    "types": ["vitest/globals", "react"],
+    "outDir": "./dist",
+    "declaration": true,
+    "allowSyntheticDefaultImports": true,
+    "isolatedModules": true
+  },
+  "include": ["src", "src/images.d.ts"],
+  "exclude": ["node_modules", "dist"]
+}
